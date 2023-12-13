@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- Tell the browser to be responsive to screen width -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="/plugins/fontawesome-free/css/all.min.css">
+    <!-- Ionicons -->
+    <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+    <!-- Theme style -->
+    <link rel="stylesheet" href="/dist/css/adminlte.min.css">
+    <!-- Google Font: Source Sans Pro -->
+    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+
+</head>
+<body>
+<div class="wrapper">
+    <!-- Content Wrapper. Contains page content -->
+    <div class="content-wrapper">
+        <!-- Main content -->
+        <section class="content">
+            <div class="container-fluid">
+                <div class="card card-success">
+                    <div class="card-body">
+                        <form role="form" id="dataForm">
+                            <!--以下每个row是一行布局-->
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <!-- select -->
+                                    <div class="form-group">
+                                        <label>批次</label>
+                                        <select id="batch" name="batch" class="form-control">
+                                            <option>第一批</option>
+                                            <option>第二批</option>
+                                            <option>第三批</option>
+                                            <option>第四批</option>
+                                            <option>第五批</option>
+                                            <option>第六批</option>
+                                            <option>第七批</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <label>ID</label>
+                                        <input id="ichId" name="ichId" type="text" class="form-control" value="auto">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <!-- select -->
+                                    <div class="form-group">
+                                        <label>一级编号</label>
+                                        <select id="level1Number" name="level1Number" class="form-control">
+                                            <option>Ⅰ</option>
+                                            <option>Ⅱ</option>
+                                            <option>Ⅲ</option>
+                                            <option>Ⅳ</option>
+                                            <option>Ⅴ</option>
+                                            <option>Ⅵ</option>
+                                            <option>Ⅶ</option>
+                                            <option>Ⅷ</option>
+                                            <option>Ⅸ</option>
+                                            <option>Ⅹ</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <label>二级编号</label>
+                                        <input id="level2Number" name="level2Number" type="number" class="form-control">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <!-- text input -->
+                                    <div class="form-group">
+                                        <label>项目名称</label>
+                                        <input id="name" name="name" type="text" class="form-control">
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <label>申请地区</label>
+                                        <input id="location" name="location" type="text" class="form-control">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <!-- select -->
+                                    <div class="form-group">
+                                        <label>申遗级别</label>
+                                        <select id="grade" name="grade" class="form-control">
+                                            <option>国家级</option>
+                                            <option>市级</option>
+                                            <option>区级</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <label>申遗类别</label>
+                                        <select id="category" name="category" class="form-control">
+                                            <option>传统技艺</option>
+                                            <option>传统美术</option>
+                                            <option>传统体育、游艺与杂技</option>
+                                            <option>传统舞蹈</option>
+                                            <option>传统戏剧</option>
+                                            <option>传统医药</option>
+                                            <option>传统音乐</option>
+                                            <option>民间文学</option>
+                                            <option>民俗</option>
+                                            <option>曲艺</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <!-- text input -->
+                                    <div class="form-group">
+                                        <label>民族</label>
+                                        <input id="nation" name="nation" type="text" class="form-control">
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <label>传承人</label>
+                                        <input id="inheritor" name="inheritor" type="text" class="form-control">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label>简介</label>
+                                <textarea id="intro" name="intro" class="form-control" rows="3"></textarea>
+                            </div>
+                            <div class="form-group">
+                                <button type="button" class="btn btn-block btn-primary" onclick="return onSubmitButtonClicked()">点击更新</button>
+                            </div>
+                        </form>
+                    </div>
+                    <!-- /.card-body -->
+                </div>
+            </div><!-- /.container-fluid -->
+        </section>
+        <!-- /.content -->
+    </div>
+</div>
+
+<!-- jQuery -->
+<script src="/plugins/jquery/jquery.min.js"></script>
+<!-- Bootstrap 4 -->
+<script src="/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+<!-- bs-custom-file-input -->
+<script src="/plugins/bs-custom-file-input/bs-custom-file-input.min.js"></script>
+<!-- AdminLTE App -->
+<script src="/dist/js/adminlte.min.js"></script>
+<!-- AdminLTE for demo purposes -->
+<script src="/dist/js/demo.js"></script>
+<script type="text/javascript">
+    $(document).ready(function () {
+        bsCustomFileInput.init();
+    });
+</script>
+<!--自己写的-->
+<script src="/js/business_for_manager/table_ich_data_update.js"></script>
+</body>
+</html>

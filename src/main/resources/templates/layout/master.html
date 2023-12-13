@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="cn" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title >重庆非物质文化遗产管理系统</title>
+    <script>
+        // 每次页面加载前都重新设置地址栏为无path型，防止暴露信息
+        var url = "http://" + window.location.href.split("/")[2];
+        window.history.pushState({}, 0, url);
+    </script>
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="plugins/fontawesome-free/css/all.min.css">
+    <!-- Ionicons -->
+    <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+    <!-- Tempusdominus Bbootstrap 4 -->
+    <link rel="stylesheet" href="plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css">
+    <!-- iCheck -->
+    <link rel="stylesheet" href="plugins/icheck-bootstrap/icheck-bootstrap.min.css">
+    <!-- JQVMap -->
+    <link rel="stylesheet" href="plugins/jqvmap/jqvmap.min.css">
+    <!-- Theme style -->
+    <link rel="stylesheet" href="dist/css/adminlte.min.css">
+    <!-- overlayScrollbars -->
+    <link rel="stylesheet" href="plugins/overlayScrollbars/css/OverlayScrollbars.min.css">
+    <!-- Daterange picker -->
+    <link rel="stylesheet" href="plugins/daterangepicker/daterangepicker.css">
+    <!-- summernote -->
+    <link rel="stylesheet" href="plugins/summernote/summernote-bs4.css">
+    <!-- Google Font: Source Sans Pro -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700">
+
+    <th:block th:replace="::css"><!--css--></th:block>
+</head>
+
+<body class="hold-transition sidebar-mini layout-fixed">
+    <p id="user_id" hidden="hidden"></p>
+    <div id="wrapper" style="display:none" class="wrapper">
+        <!-- Navbar 最顶部的菜单-->
+        <nav class="main-header navbar navbar-expand navbar-white navbar-light">
+            <!-- Left navbar links 左侧菜单开启按钮和首页 -->
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
+                </li>
+                <li class="nav-item d-none d-sm-inline-block">
+                    <a href="home" class="nav-link">首页</a>
+                </li>
+            </ul>
+
+            <!-- SEARCH FORM 搜索-->
+            <form class="form-inline ml-3">
+                <div class="input-group input-group-sm">
+                    <input class="form-control form-control-navbar" type="search" placeholder="搜索" aria-label="Search">
+                    <div class="input-group-append">
+                        <button class="btn btn-navbar" type="submit">
+                            <i class="fas fa-search"></i>
+                        </button>
+                    </div>
+                </div>
+            </form>
+
+            <!-- Right navbar links 右侧的消息通知-->
+            <ul id="msg_hint" class="navbar-nav ml-auto">
+                <li class="nav-item dropdown">
+                    <a class="nav-link" data-toggle="dropdown" href="#">
+                        <i class="far fa-bell"></i>
+                        <span id="message_and_notice_count" class="badge badge-warning navbar-badge">0</span>
+                    </a>
+                    <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
+                        <a class="dropdown-item">
+                            <i class="fas fa-envelope mr-2"></i> <span id="message_count">0</span> new messages
+                        </a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item">
+                            <i class="fas fa-file mr-2"></i> <span id="notice_count">0</span> new notices
+                        </a>
+                        <div class="dropdown-divider"></div>
+                        <a href="message_detail" class="dropdown-item dropdown-footer">查看所有消息和通知</a>
+                    </div>
+                </li>
+            </ul>
+        </nav>
+
+
+        <!-- Main Sidebar Container 左边的菜单 -->
+        <aside class="main-sidebar sidebar-dark-primary elevation-4">
+            <!-- Logo -->
+            <a href="home" class="brand-link">
+                <img src="img/Logo.png" alt="Logo" class="brand-image img-circle elevation-3"
+                     style="opacity: .8">
+                <span class="brand-text font-weight-light">CICH IMS 1.0</span>
+            </a>
+
+            <!-- sidebar -->
+            <div class="sidebar">
+                <!-- 用户信息 -->
+                <div id="before_login_div" class="user-panel mt-3 pb-3 mb-3 d-flex">
+                    <div class="image">
+                        <img src="img/unlogin.jpg" class="img-circle elevation-2" alt="User Image">
+                    </div>
+                    <div class="info">
+                        <a class="d-block">游客<span>@Tourist</span></a>
+                    </div>
+                    <div class="info">
+                        <a href="" class="d-block" onclick="return loginIn()">登录</a>
+                    </div>
+                </div>
+                <div id="after_login_div" class="user-panel mt-3 pb-3 mb-3 d-flex">
+                    <div class="image">
+                        <img id="login_img" class="img-circle elevation-2" alt="User Image">
+                    </div>
+                    <div class="info">
+                        <a id="login_href" href="personal_info" class="d-block"></a>
+                    </div>
+                    <div class="info">
+                        <a href="" class="d-block" onclick="return loginOut()">退出</a>
+                    </div>
+                </div>
+
+                <!-- Sidebar Menu 菜单-->
+                <nav class="mt-2">
+                    <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+                        <!-- Add icons to the links using the .nav-icon class
+                             with font-awesome or any other icon font library -->
+
+                        <!--menu 我的-->
+                        <li id="menu_my" class="nav-item has-treeview">
+                            <a href="" class="nav-link">
+                                <i class="nav-icon fas fa-book"></i>
+                                <p>
+                                    我的
+                                    <i class="right fas fa-angle-left"></i>
+                                </p>
+                            </a>
+                            <ul class="nav nav-treeview">
+                                <li class="nav-item">
+                                    <a id="personal_info" href="personal_info" class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>我的资料</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a id="change_password" href="change_password" class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>修改密码</p>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+
+                        <!--menu 消息和通知-->
+                        <li id="menu_msg" class="nav-item has-treeview">
+                            <!--nav-item has-treeview menu-open     打开状态-->
+                            <a href="" class="nav-link">
+                                <i class="nav-icon far fa-envelope"></i>
+                                <p>
+                                    消息和通知
+                                    <i class="right fas fa-angle-left"></i>
+                                </p>
+                            </a>
+                            <ul class="nav nav-treeview">
+                                <li class="nav-item">
+                                    <a id="message" href="message_list" class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>我的消息</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a id="menu_msg_publicMsg" href="publish_msg" class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>发布新通知</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a id="menu_msg_publicMsgList" href="published_msg_list" class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>我发布的通知</p>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+
+                        <!--menu 通用-->
+                        <li id="menu_general" class="nav-item has-treeview">
+                            <a href="#" class="nav-link">
+                                <i class="nav-icon fas fa-copy"></i>
+                                <p>
+                                    通用
+                                    <i class="fas fa-angle-left right"></i>
+                                    <span class="badge badge-info right"></span>
+                                </p>
+                            </a>
+                            <ul class="nav nav-treeview">
+                                <li class="nav-item">
+                                    <a id="menu_general_home" href="/home" class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>首页</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a  id="menu_general_general_list" href="/general_list" class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>查看非遗列表</p>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+
+                        <!--menu user业务办理-->
+                        <li id="menu_business_for_user" class="nav-item has-treeview">
+                            <a href="#" class="nav-link">
+                                <i class="nav-icon fas fa-table"></i>
+                                <p>
+                                    业务办理
+                                    <i class="fas fa-angle-left right"></i>
+                                    <span class="badge badge-info right"></span>
+                                </p>
+                            </a>
+                            <ul class="nav nav-treeview">
+                                <li class="nav-item">
+                                    <a id="apply" href="apply" class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>申请非遗</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a id="apply_list" href="apply_list" class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>申请记录</p>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+
+                        <!--menu investigator业务办理-->
+                        <li  id="menu_business_for_investigator" class="nav-item has-treeview">
+                            <a href="#" class="nav-link">
+                                <i class="nav-icon fas fa-table"></i>
+                                <p>
+                                    业务办理
+                                    <i class="fas fa-angle-left right"></i>
+                                    <span class="badge badge-info right"></span>
+                                </p>
+                            </a>
+                            <ul class="nav nav-treeview">
+                                <li class="nav-item">
+                                    <a id="investigate_list" href="investigate_list" class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>审批非遗申请</p>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+
+                        <!--menu manager业务办理-->
+                        <li  id="menu_business_for_manager" class="nav-item has-treeview">
+                            <a href="#" class="nav-link">
+                                <i class="nav-icon fas fa-table"></i>
+                                <p>
+                                    业务办理
+                                    <i class="fas fa-angle-left right"></i>
+                                    <span class="badge badge-info right"></span>
+                                </p>
+                            </a>
+                            <ul class="nav nav-treeview">
+                                <li class="nav-item">
+                                    <a id="table_user_identity" href="table_user_identity" class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>身份信息表</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a id="table_user_data" href="table_user_data" class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>用户资料表</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a id="table_msg" href="table_msg" class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>消息表</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a id="table_apply" href="table_apply" class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>非遗申请表</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a id="table_ich_data" href="table_ich_data" class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>非遗信息表</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a id="table_log" href="table_log" class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>系统日志</p>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </nav>
+                <!-- end of sidebar-menu -->
+            </div>
+            <!-- end of sidebar -->
+        </aside>
+
+
+        <!-- Content Wrapper. Contains page content 中间内容-->
+        <div class="content-wrapper">
+            <!-- Content Header (Page header) 页头-->
+            <div class="content-header">
+                <div class="container-fluid">
+                    <div class="row mb-2">
+                        <div class="col-sm-6">
+                            <h1 id="page_h1" class="m-0 text-dark"></h1>
+                        </div>
+                        <div class="col-sm-6">
+                            <ol class="breadcrumb float-sm-right">
+                                <li id="page_h1_item" class="breadcrumb-item" style="color: #3873ff;"></li>
+                                <li id="page_h1_menu" class="breadcrumb-item active"></li>
+                            </ol>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Main content 页面内容，需替换的内容-->
+            <div id="content-container" th:replace="::content"></div>
+            <!-- end of content -->
+
+        </div>
+        <!-- end of content-wrapper -->
+
+
+        <!--页脚 版权信息-->
+        <footer class="main-footer">
+            <strong>联系作者：742551964@qq.com</strong>
+            <div class="float-right d-none d-sm-inline-block">
+                <b>Version</b> 1.0.0
+            </div>
+        </footer>
+
+
+        <!-- Control Sidebar 页面布局控制-->
+        <aside class="control-sidebar control-sidebar-dark">
+            <!-- Control sidebar content goes here -->
+        </aside>
+        <!-- /.control-sidebar -->
+
+    </div>
+
+    <!-- jQuery -->
+    <script src="plugins/jquery/jquery.min.js"></script>
+    <!-- jQuery cookies-->
+    <script src="plugins/jquery/jquery.cookie.js"></script>
+    <!-- jQuery UI 1.11.4 -->
+    <script src="plugins/jquery-ui/jquery-ui.min.js"></script>
+    <!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
+    <script>$.widget.bridge('uibutton', $.ui.button)</script>
+    <!-- js库-->
+    <script src="plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <!-- ChartJS -->
+    <script src="plugins/chart.js/Chart.min.js"></script>
+    <!-- Sparkline -->
+    <script src="plugins/sparklines/sparkline.js"></script>
+    <!-- JQVMap -->
+    <script src="plugins/jqvmap/jquery.vmap.min.js"></script>
+    <script src="plugins/jqvmap/maps/jquery.vmap.usa.js"></script>
+    <!-- jQuery Knob Chart -->
+    <script src="plugins/jquery-knob/jquery.knob.min.js"></script>
+    <!-- daterangepicker -->
+    <script src="plugins/moment/moment.min.js"></script>
+    <script src="plugins/daterangepicker/daterangepicker.js"></script>
+    <!-- Tempusdominus Bootstrap 4 -->
+    <script src="plugins/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.min.js"></script>
+    <!-- Summernote -->
+    <script src="plugins/summernote/summernote-bs4.min.js"></script>
+    <!-- overlayScrollbars -->
+    <script src="plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js"></script>
+    <!-- AdminLTE App -->
+    <script src="dist/js/adminlte.js"></script>
+    <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
+    <script src="dist/js/pages/dashboard.js"></script>
+    <!-- AdminLTE for demo purposes -->
+    <script src="dist/js/demo.js"></script>
+    <script src="/js/layout/master.js"></script>
+    <th:block class="script" th:replace="::scripts"><!--js--></th:block>
+</body>
+
+</html>
+

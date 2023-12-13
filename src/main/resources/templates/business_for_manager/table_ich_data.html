@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" th:replace="layout/master"><!-- layout文件路径-->
+
+
+<th:block th:fragment="css">
+    <!--bootstrap-table-->
+    <link rel="stylesheet" href="/plugins/bootstrap-table/bootstrap-table.min.css">
+    <!--layerui-->
+    <link rel="stylesheet" href="/plugins/layerui/css/layui.css">
+</th:block>
+
+
+<div th:fragment="content">
+    <button class="btn btn-block btn-primary" onclick="addNew()">新增非遗信息</button>
+    <button class="btn btn-block btn-danger" onclick="batchRemove()">批量删除选中信息</button>
+
+    <div class="rom">
+        <table class="table table-bordered" id="data_table">
+        </table>
+    </div>
+</div>
+
+
+<div th:fragment="scripts">
+    <!--bootstrap-table-->
+    <script src="/plugins/bootstrap-table/bootstrap-table.min.js"></script>
+    <script src="/plugins/bootstrap-table/locale/bootstrap-table-zh-CN.min.js"></script>
+    <!--layerui-->
+    <script src="/plugins/layerui/layui.js"></script>
+    <!--页面代码-->
+    <script src="/js/business_for_manager/table_ich_data.js"></script>
+</div>
+
+
+</html>

@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" th:replace="layout/master"><!-- layout文件路径-->
+
+<th:block th:fragment="css"></th:block>
+
+
+<div th:fragment="content">
+    <p>发布消息</p>
+</div>
+
+
+<div th:fragment="scripts">
+    <script src="/js/message/publish_msg.js"></script>
+</div>
+
+
+</html>

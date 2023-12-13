@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" th:replace="layout/master"><!-- layout文件路径-->
+
+<th:block th:fragment="css">
+</th:block>
+
+
+<div th:fragment="content">
+    <div class="card-body">
+        <form role="form"  target="ajaxFrame">
+
+            <div class="row">
+                <div class="col-sm-6">
+                    <!-- text input -->
+                    <div class="form-group">
+                        <label>姓名</label>
+                        <input id="username" type="text" class="form-control" placeholder="Enter...">
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <label>用户ID</label>
+                        <input id="input_user_id" type="text" class="form-control" placeholder="Enter..." disabled>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-sm-6">
+                    <!-- textarea -->
+                    <div class="form-group">
+                        <label>个人简介</label>
+                        <textarea id="resume" class="form-control" rows="3" placeholder="Enter ..."></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label>联系方式</label>
+                        <input id="phone_number" type="text" class="form-control" placeholder="Enter...">
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <!-- 头像 -->
+                    <div class="form-group">
+                        <input type="file" name="file" id="img_path" style="opacity: 0;width: 0">
+                        <img id="img">
+                        <label for="img_path" class='btn btn-success'>更换头像</label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <label>部门</label>
+                        <select id="department" class="form-control">
+                            <option>公民</option>
+                            <option>文化部</option>
+                            <option>旅游部</option>
+                            <option>产业部</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <label>职位</label>
+                        <select id="position" class="form-control">
+                            <option>公民</option>
+                            <option>部长</option>
+                            <option>副部长</option>
+                            <option>干事</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <label>生日</label>
+                        <input id="birthday"  class="form-control" type="date"/>
+                    </div>
+                </div>
+            </div>
+            <button type="button" class="btn btn-block btn-primary" onclick="return save()">点击保存</button>
+        </form>
+    </div>
+</div>
+
+
+<div th:fragment="scripts">
+    <script src="/js/my/personal_info.js"></script>
+</div>
+
+
+</html>

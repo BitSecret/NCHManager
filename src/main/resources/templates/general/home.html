@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" th:replace="layout/master"><!-- layout文件路径-->
+
+<th:block th:fragment="css">
+</th:block>
+
+
+<div th:fragment="content">
+    <!--第一行的展示图片-->
+    <div class="card">
+        <div class="card-body">
+            <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+                <ol class="carousel-indicators">
+                    <li data-target="#carouselExampleIndicators" data-slide-to="0" class=""></li>
+                    <li data-target="#carouselExampleIndicators" data-slide-to="1" class=""></li>
+                    <li data-target="#carouselExampleIndicators" data-slide-to="2" class="active"></li>
+                </ol>
+                <div class="carousel-inner">
+                    <div class="carousel-item">
+                        <img id="slide1" class="d-block w-100" alt="First slide">
+                    </div>
+                    <div class="carousel-item">
+                        <img id="slide2" class="d-block w-100" alt="Second slide">
+                    </div>
+                    <div class="carousel-item active">
+                        <img id="slide3" class="d-block w-100" alt="Third slide">
+                    </div>
+                </div>
+                <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Previous</span>
+                </a>
+                <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Next</span>
+                </a>
+            </div>
+        </div>
+        <!-- /.card-body -->
+    </div>
+
+    <!--第二行的信息表-->
+    <div class="card card-primary card-tabs">
+        <div class="card-header p-0 pt-1">
+            <ul class="nav nav-tabs" id="custom-tabs-one-tab" role="tablist">
+                <li class="nav-item">
+                    <a class="nav-link active" id="custom-tabs-one-home-tab" data-toggle="pill" href="#custom-tabs-one-home" role="tab" aria-controls="custom-tabs-one-home" aria-selected="true">名录</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" id="custom-tabs-one-profile-tab" data-toggle="pill" href="#custom-tabs-one-profile" role="tab" aria-controls="custom-tabs-one-profile" aria-selected="false">新闻</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" id="custom-tabs-one-messages-tab" data-toggle="pill" href="#custom-tabs-one-messages" role="tab" aria-controls="custom-tabs-one-messages" aria-selected="false">通知</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" id="custom-tabs-one-settings-tab" data-toggle="pill" href="#custom-tabs-one-settings" role="tab" aria-controls="custom-tabs-one-settings" aria-selected="false">研究</a>
+                </li>
+            </ul>
+        </div>
+        <div class="card-body">
+            <div class="tab-content" id="custom-tabs-one-tabContent">
+                <div class="tab-pane fade active show" id="custom-tabs-one-home" role="tabpanel" aria-labelledby="custom-tabs-one-home-tab">
+                    <h3>国家级非物质文化遗产名录</h3>
+                    <p>国家级非物质文化遗产名录是经中华人民共和国国务院批准，由文化和旅游部（简称“文旅部”）确定并公布的非物质文化遗产名录。</p>
+                    <p>为使中国的非物质文化遗产保护工作规范化，国务院发布《关于加强文化遗产保护的通知》，并制定“国家 + 省 + 市 + 县”共4级保护体系，要求各地方和各有关部门贯彻“保护为主、抢救第一、合理利用、传承发展”的工作方针，切实做好非物质文化遗产的保护、管理和合理利用工作。</p>
+                    <p>中华人民共和国国务院先后批准分别于2006年、2008年和2011年、2014年命名了四批国家级非物质文化遗产名录：</p>
+                    <p>2006年5月20日第一批国家级非物质文化遗产名录（共518项）</p>
+                    <p>2008年6月14日第二批国家级非物质文化遗产名录（共计510项）</p>
+                    <p>2011年6月10日第三批国家级非物质文化遗产名录（共计191项）</p>
+                    <p>2014年7月16日第四批国家级非物质文化遗产名录（共计153项）</p>
+                </div>
+                <div class="tab-pane fade" id="custom-tabs-one-profile" role="tabpanel" aria-labelledby="custom-tabs-one-profile-tab">
+                    <h3>重庆市第六批市级非遗代表性项目名录公布</h3>
+                    <p>6月28日，重庆日报记者从市文旅委获悉，重庆市第六批市级非物质文化遗产代表性项目名录公布，共196项非物质文化遗产入选，涉及民间文学、传统音乐、传统舞蹈、传统戏剧、传统技艺等10个类别。</p>
+                    <p>记者了解到，传统技艺类别共有96项非遗入选，在所有类别中是最多的。这些传统技艺至今仍“活”在市民的生活中，众多非遗项目承载的美味，市民都不陌生。例如，重庆烤鱼技艺、重庆小面制作技艺、巴渝羊肉传统制作技艺、重庆火锅传统制作技艺、黄花园酱油酿造技艺等。此外，重庆图书馆的古籍修复技艺也入选了该类别。</p>
+                    <p>如果说传统技艺类别的非遗更多地点燃了市民的味蕾，那么传统医药类别的非遗则是为市民的健康保驾护航。重庆市中医骨科医院正骨诊疗术、黄氏中医正骨术、何氏点熨灸治术等项目成为市级非遗大家庭的成员。</p>
+                    <p>民俗类别的非遗承载着乡愁的味道。秀山的赦饭制作与分享习俗、彭水的土家三道席传统习俗、万盛的茶树红苗长桌宴……它们让人们感受到民俗文化很接地气。</p>
+                    <p>据介绍，重庆曾在2007年、2009年、2011年、2014年和2016年公布了五批市级非物质文化遗产代表性项目名录，此次公布的名录是入选数量最多的一次。</p>
+                </div>
+                <div class="tab-pane fade" id="custom-tabs-one-messages" role="tabpanel" aria-labelledby="custom-tabs-one-messages-tab">
+                    <h3>重庆市人民政府关于公布重庆市第六批市级非物质文化遗产代表性项目名录的通知</h3>
+                    <p>各区县（自治县）人民政府，市政府各部门，有关单位：</p>
+                    <p>为保护和传承非物质文化遗产，加快推动中华优秀传统文化创造性转化和创新性发展，根据《中华人民共和国非物质文化遗产法》《重庆市非物质文化遗产条例》有关规定，经市非物质文化遗产专家评审委员会组织专家评审，市政府同意将“涪州风物传说”等196项非物质文化遗产列入重庆市第六批市级非物质文化遗产代表性项目名录，现予公布。</p>
+                    <p>重庆市人民政府</p>
+                    <p>2019年6月18日</p>
+                </div>
+                <div class="tab-pane fade" id="custom-tabs-one-settings" role="tabpanel" aria-labelledby="custom-tabs-one-settings-tab">
+                    <h3>非物质文化遗产产业化经营实证研究</h3>
+                    <p>2010年8月,重庆剪纸和其他地方剪纸作为中国剪纸联合申请项目,被列入《人类非物质文化遗产代表作名录》。本文介绍重庆剪纸的概况,通过对其产业化经营现状及存在问题的分析,并结合非物质文化遗产所具有的重要文化价值、经济价值和教育价值,提出了推进重庆剪纸产业化经营的对策。</p>
+                    <div class="paper">
+                        <div id="reference" class="contentPaper">
+                            <div class="contentTitle">
+                                <span class="heade">参考文献(3)</span>
+                                <!---->
+                            </div>
+                            <div style="height: 400px; width: 920px; display: none;"></div>
+                            <div class="contentInfo">
+                                <tbody class="contentInfoItem">
+                                <tr>
+                                    <td target="_blank" class="icon" style="cursor: pointer;"></td>
+                                    <td style="vertical-align: baseline; padding-right: 5px;">
+                                        <span style="position: relative; top: 1px; left: 0px;">[1]</span>
+                                    </td>
+                                    <td class="title">
+                                        <span class="author" style="vertical-align: middle;">
+                                            <span><a target="_blank"
+                                                     href="http://common.wanfangdata.com.cn/common/getAuthorUrl.do?&amp;authorName=%22梁君%22">梁君</a><span>.</span></span></span><a
+                                            target="_blank" href="/periodical/jiangssl200906048" class="title">非物质文化遗产产业化探析</a><span
+                                            style="vertical-align: middle;">[J].</span><span
+                                            style="vertical-align: middle;"><a target="_blank"
+                                                                               href="http://www.wanfangdata.com.cn/perio/detail.do?perio_id=jiangssl"
+                                                                               class="code">江苏商论</a></span><!----><span
+                                            style="vertical-align: middle;">,</span><span
+                                            style="vertical-align: middle;">2009,</span><!----><span
+                                            style="vertical-align: middle;">(6).</span><span
+                                            style="vertical-align: middle;">129-131.</span><!----></td>
+                                </tr>
+                                </tbody>
+                            </div>
+                            <div class="contentInfo">
+                                <tbody class="contentInfoItem">
+                                <tr>
+                                    <td class="icon iconUndown"></td>
+                                    <td style="vertical-align: baseline; padding-right: 5px;"><span
+                                            style="position: relative; top: 1px; left: 0px;">[2]</span></td>
+                                    <td class="title"><span class="author" style="vertical-align: middle;"><span><a
+                                            target="_blank"
+                                            href="http://common.wanfangdata.com.cn/common/getAuthorUrl.do?&amp;authorName=%22辛儒%22">辛儒</a><span>,</span></span><span><a
+                                            target="_blank"
+                                            href="http://common.wanfangdata.com.cn/common/getAuthorUrl.do?&amp;authorName=%22王释云%22">王释云</a><span>.</span></span></span><a
+                                            target="_blank" href="/periodical/zgjtjj201001077" class="title">非物质文化遗产产业化内涵解读与策略探析</a><span
+                                            style="vertical-align: middle;">[J].</span><span
+                                            style="vertical-align: middle;"><a target="_blank"
+                                                                               href="http://www.wanfangdata.com.cn/perio/detail.do?perio_id=zgjtjj"
+                                                                               class="code">中国集体经济</a></span>
+                                        <!----><span style="vertical-align: middle;">,</span><span
+                                                style="vertical-align: middle;">2010,</span><!----><span
+                                                style="vertical-align: middle;">(1).</span><span
+                                                style="vertical-align: middle;">142-143.</span><!----></td>
+                                </tr>
+                                </tbody>
+                            </div>
+                            <div class="contentInfo">
+                                <tbody class="contentInfoItem">
+                                <tr>
+                                    <td class="icon iconUndown"></td>
+                                    <td style="vertical-align: baseline; padding-right: 5px;"><span
+                                            style="position: relative; top: 1px; left: 0px;">[3]</span></td>
+                                    <td class="title"><span class="author" style="vertical-align: middle;"><span><a
+                                            target="_blank"
+                                            href="http://common.wanfangdata.com.cn/common/getAuthorUrl.do?&amp;authorName=%22辛儒%22">辛儒</a><span>.</span></span></span><a
+                                            target="_blank" href="/periodical/sclyj200806002" class="title">我国非物质文化遗产产业化经营问题探讨</a><span
+                                            style="vertical-align: middle;">[J].</span><span
+                                            style="vertical-align: middle;"><a target="_blank"
+                                                                               href="http://www.wanfangdata.com.cn/perio/detail.do?perio_id=sclyj"
+                                                                               class="code">生产力研究</a></span><!----><span
+                                            style="vertical-align: middle;">,</span><span
+                                            style="vertical-align: middle;">2008,</span><!----><span
+                                            style="vertical-align: middle;">(6).</span><span
+                                            style="vertical-align: middle;">4-5,12.</span><!----></td>
+                                </tr>
+                                </tbody>
+                            </div><!----></div>
+                        <div id="cite" class="contentPaper">
+                            <div class="contentTitle"><span class="heade">引证文献 (8)</span></div>
+                            <div style="height: 400px; width: 920px; display: none;"></div>
+                            <div class="contentInfo">
+                                <tbody class="contentInfoItem">
+                                <tr>
+                                    <td target="_blank" class="icon" style="cursor: pointer;"></td>
+                                    <td style="vertical-align: baseline; padding-right: 5px;">[1]</td>
+                                    <td class="title"><span><span><a target="_blank"
+                                                                     href="http://common.wanfangdata.com.cn/common/getAuthorUrl.do?&amp;authorName=%22%E6%9D%9C%E5%9B%9B%E8%BF%9C%22">杜四远</a><span>.</span></span></span><a
+                                            target="_blank" href="/thesis/D01095746"
+                                            class="title">焦作国际太极拳交流大赛产业化发展研究</a><span>[D].</span>
+                                        <!----><span>西安体育学院,</span><!----><span>2016<span>.</span></span><!----><!---->
+                                        <!----><!----></td>
+                                </tr>
+                                </tbody>
+                            </div>
+                            <div class="contentInfo">
+                                <tbody class="contentInfoItem">
+                                <tr>
+                                    <td target="_blank" class="icon" style="cursor: pointer;"></td>
+                                    <td style="vertical-align: baseline; padding-right: 5px;">[2]</td>
+                                    <td class="title"><span><span><a target="_blank"
+                                                                     href="http://common.wanfangdata.com.cn/common/getAuthorUrl.do?&amp;authorName=%22%E5%91%A8%E6%99%A8%E5%88%9A%22">周晨刚</a><span>.</span></span></span><a
+                                            target="_blank" href="/thesis/Y2621753" class="title">陕西红拳产业化研究</a><span>[D].</span>
+                                        <!----><span>西安体育学院,</span><!----><span>2014<span>.</span></span><!----><!---->
+                                        <!----><!----></td>
+                                </tr>
+                                </tbody>
+                            </div>
+                            <div class="contentInfo">
+                                <tbody class="contentInfoItem">
+                                <tr>
+                                    <td target="_blank" class="icon" style="cursor: pointer;"></td>
+                                    <td style="vertical-align: baseline; padding-right: 5px;">[3]</td>
+                                    <td class="title"><span><span><a target="_blank"
+                                                                     href="http://common.wanfangdata.com.cn/common/getAuthorUrl.do?&amp;authorName=%22%E7%8E%8B%E4%B8%B9%E5%87%A4%22">王丹凤</a><span>.</span></span></span><a
+                                            target="_blank" href="/thesis/Y2730569"
+                                            class="title">衡水非物质文化遗产内画艺术的产业化探究</a><span>[D].</span>
+                                        <!----><span>河北师范大学,</span><!----><span>2014<span>.</span></span><!----><!---->
+                                        <!----><!----></td>
+                                </tr>
+                                </tbody>
+                            </div>
+                            <div class="contentInfo">
+                                <tbody class="contentInfoItem">
+                                <tr>
+                                    <td target="_blank" class="icon" style="cursor: pointer;"></td>
+                                    <td style="vertical-align: baseline; padding-right: 5px;">[4]</td>
+                                    <td class="title"><span class="author"><span><a target="_blank"
+                                                                                    href="http://common.wanfangdata.com.cn/common/getAuthorUrl.do?&amp;authorName=%22%E6%B8%A9%E8%95%BE%22">温蕾</a><span>,</span></span><span><a
+                                            target="_blank"
+                                            href="http://common.wanfangdata.com.cn/common/getAuthorUrl.do?&amp;authorName=%22%E5%90%B4%E7%90%BC%22">吴琼</a><span>,</span></span><span><a
+                                            target="_blank"
+                                            href="http://common.wanfangdata.com.cn/common/getAuthorUrl.do?&amp;authorName=%22%E4%BB%98%E8%93%89%22">付蓉</a><span>,等.</span></span></span><a
+                                            target="_blank" href="/periodical/jjwt201709013" class="title">非物质文化遗产产业化中知识产权保护研究--基于民间剪纸艺术分析</a><span>[J].</span><a
+                                            target="_blank"
+                                            href="http://www.wanfangdata.com.cn/perio/detail.do?perio_id=jjwt">经济问题</a>
+                                        <!----><span>.</span><span>2017<span>,</span></span>
+                                        <!----><span>(9).</span><span>118-119.</span><!----></td>
+                                </tr>
+                                </tbody>
+                            </div>
+                            <div class="contentInfo">
+                                <tbody class="contentInfoItem">
+                                <tr>
+                                    <td target="_blank" class="icon" style="cursor: pointer;"></td>
+                                    <td style="vertical-align: baseline; padding-right: 5px;">[5]</td>
+                                    <td class="title"><span><span><a target="_blank"
+                                                                     href="http://common.wanfangdata.com.cn/common/getAuthorUrl.do?&amp;authorName=%22%E6%B1%9F%E5%A8%9F%E4%B8%BD%22">江娟丽</a><span>,</span></span><span><a
+                                            target="_blank"
+                                            href="http://common.wanfangdata.com.cn/common/getAuthorUrl.do?&amp;authorName=%22%E8%91%A3%E6%80%9D%E8%A8%80%22">董思言</a><span>,</span></span><span><a
+                                            target="_blank"
+                                            href="http://common.wanfangdata.com.cn/common/getAuthorUrl.do?&amp;authorName=%22%E9%83%AD%E7%A3%8A%22">郭磊</a><span>.</span></span></span><a
+                                            target="_blank" href="/periodical/ynmzxyxb-zxsh201702007" class="title">重庆剪纸非物质文化遗产产业化发展困境及开发模式</a><span>[J].</span><a
+                                            target="_blank"
+                                            href="http://www.wanfangdata.com.cn/perio/detail.do?perio_id=ynmzxyxb-zxsh">云南民族大学学报（哲学社会科学版）</a>
+                                        <!----><span>.</span><span>2017<span>,</span></span>
+                                        <!----><span>(2).</span><span>118-119.</span><!----></td>
+                                </tr>
+                                </tbody>
+                            </div>
+                            <div class="contentInfo">
+                                <tbody class="contentInfoItem">
+                                <tr>
+                                    <td target="_blank" class="icon" style="cursor: pointer;"></td>
+                                    <td style="vertical-align: baseline; padding-right: 5px;">[6]</td>
+                                    <td class="title"><span><span><a target="_blank"
+                                                                     href="http://common.wanfangdata.com.cn/common/getAuthorUrl.do?&amp;authorName=%22%E4%BB%98%E8%93%89%22">付蓉</a><span>.</span></span></span><a
+                                            target="_blank" href="/periodical/sxda201805052" class="title">非物质文化遗产视角下的山西民间剪纸艺术传承</a><span>[J].</span><a
+                                            target="_blank"
+                                            href="http://www.wanfangdata.com.cn/perio/detail.do?perio_id=sxda">山西档案</a>
+                                        <!----><span>.</span><span>2018<span>,</span></span>
+                                        <!----><span>(5).</span><span>118-119.</span><!----></td>
+                                </tr>
+                                </tbody>
+                            </div>
+                            <div class="contentInfo">
+                                <tbody class="contentInfoItem">
+                                <tr>
+                                    <td class="icon iconUndown"></td>
+                                    <td style="vertical-align: baseline; padding-right: 5px;">[7]</td>
+                                    <td class="title"><span><span><a target="_blank"
+                                                                     href="http://common.wanfangdata.com.cn/common/getAuthorUrl.do?&amp;authorName=%22%E6%9D%8E%E5%A8%9C%22">李娜</a><span>,</span></span><span><a
+                                            target="_blank"
+                                            href="http://common.wanfangdata.com.cn/common/getAuthorUrl.do?&amp;authorName=%22%E7%8E%8B%E4%B8%B9%E5%87%A4%22">王丹凤</a><span>.</span></span></span><a
+                                            target="_blank" href="/periodical/dwt201311124"
+                                            class="title">衡水冀派内画产业化现状与对策</a><span>[J].</span><a target="_blank"
+                                                                                                href="http://www.wanfangdata.com.cn/perio/detail.do?perio_id=dwt">大舞台</a>
+                                        <!----><span>.</span><span>2013<span>,</span></span>
+                                        <!----><span>(11).</span><span>118-119.</span><!----></td>
+                                </tr>
+                                </tbody>
+                            </div>
+                            <div class="contentInfo">
+                                <tbody class="contentInfoItem">
+                                <tr>
+                                    <td target="_blank" class="icon" style="cursor: pointer;"></td>
+                                    <td style="vertical-align: baseline; padding-right: 5px;">[8]</td>
+                                    <td class="title"><span><span><a target="_blank"
+                                                                     href="http://common.wanfangdata.com.cn/common/getAuthorUrl.do?&amp;authorName=%22%E5%88%98%E5%A6%A4%22">刘妤</a><span>.</span></span></span><a
+                                            target="_blank" href="/periodical/dzwy201324046" class="title">广东潮州麦秆画的产业化转型与发展策略研究</a><span>[J].</span><a
+                                            target="_blank"
+                                            href="http://www.wanfangdata.com.cn/perio/detail.do?perio_id=dzwy">大众文艺</a>
+                                        <!----><span>.</span><span>2013<span>,</span></span>
+                                        <!----><span>(24).</span><span>118-119.</span><span>doi:<a target="_blank"
+                                                                                                   href="http://dx.chinadoi.cn/10.3969/j.issn.1007-5828.2013.24.046">10.3969/j.issn.1007-5828.2013.24.046</a>.
+          </span></td>
+                                </tr>
+                                </tbody>
+                            </div><!----></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- /.card -->
+    </div>
+
+    <!--第三行的两个饼状图-->
+    <div class="row">
+        <div class="col-md-6">
+            <!-- DONUT CHART -->
+            <div class="card card-blue">
+                <div class="card-header">
+                    <h3 class="card-title">批次分布</h3>
+                </div>
+                <div class="card-body"><div class="chartjs-size-monitor"><div class="chartjs-size-monitor-expand"><div class=""></div></div><div class="chartjs-size-monitor-shrink"><div class=""></div></div></div>
+                    <canvas id="donutChart" style="min-height: 250px; height: 250px; max-height: 250px; max-width: 100%; display: block; width: 403px;" width="403" height="250" class="chartjs-render-monitor"></canvas>
+                </div>
+                <!-- /.card-body -->
+            </div>
+            <!-- /.card -->
+        </div>
+        <!-- /.col (LEFT) -->
+        <div class="col-md-6">
+            <!-- PIE CHART -->
+            <div class="card card-blue">
+                <div class="card-header">
+                    <h3 class="card-title">类别分布</h3>
+                </div>
+                <div class="card-body">
+                    <div class="chartjs-size-monitor">
+                        <div class="chartjs-size-monitor-expand">
+                            <div class=""></div>
+                        </div>
+                        <div class="chartjs-size-monitor-shrink">
+                            <div class=""></div>
+                        </div>
+                    </div>
+                    <canvas id="pieChart" style="min-height: 250px; height: 250px; max-height: 250px; max-width: 100%; display: block; width: 403px;" width="403" height="250" class="chartjs-render-monitor"></canvas>
+                </div>
+                <!-- /.card-body -->
+            </div>
+            <!-- /.card -->
+        </div>
+        <!-- /.col (RIGHT) -->
+    </div>
+</div>
+
+<div th:fragment="scripts">
+    <script src="/js/general/home.js"></script>
+</div>
+
+</html>
